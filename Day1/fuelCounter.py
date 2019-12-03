@@ -1,7 +1,7 @@
 import math
 FILE_PATH = "modules.txt"
 
-# Should return 3303995
+# Should return 3303995 for the fuel count
 def fuelCounter():
     fuel = 0
     file = open(FILE_PATH, "r")
@@ -10,7 +10,7 @@ def fuelCounter():
         fuel += math.floor(moduleMass / 3) - 2
     return fuel
 
-# Should return 4953118
+# Should return 4953118 for the fuel count
 def fuelCounterWithAddedMass():
     fuel = 0
     file = open(FILE_PATH, "r")
