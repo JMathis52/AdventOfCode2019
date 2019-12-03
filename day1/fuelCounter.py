@@ -1,28 +1,29 @@
 import math
+FILE_PATH = "modules.txt"
 
+# Should return 3303995
 def fuelCounter():
     fuel = 0
-    file = open("./modules.txt", "r")
+    file = open(FILE_PATH, "r")
     for line in file:
         moduleMass = int(line.strip())
         fuel += math.floor(moduleMass / 3) - 2
     return fuel
 
+# Should return 4953118
 def fuelCounterWithAddedMass():
     fuel = 0
-    file = open("./modules.txt", "r")
+    file = open(FILE_PATH, "r")
     for line in file:
         moduleMass = int(line.strip())
         while (moduleMass > 0):
             nextMass = math.floor(moduleMass / 3) - 2
-            if (nextMass <= 0):
-                fuel += 0
-            else:
-                fuel += nextMass
+            fuel += 0 if nextMass <= 0 else nextMass
             moduleMass = nextMass
-        
     return fuel
 
 if __name__ == "__main__":
+    totalFuel = fuelCounter()
+    print(totalFuel)
     totalFuel = fuelCounterWithAddedMass()
     print(totalFuel)
